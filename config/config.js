@@ -31,7 +31,7 @@ var config = {
       name: 'attractapp'
     },
     port: process.env.PORT || 5000,
-    db: 'mongodb://heroku_jx2wxdw5:sett280287@ds023540.mlab.com:23540/heroku_jx2wxdw5'
+    db: 'mongodb://manager:manager123@ds023540.mlab.com:23540/heroku_jx2wxdw5'
   }
 };
 
