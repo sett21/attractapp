@@ -5,6 +5,8 @@ var path = require('path'),
 var config = {
   development: {
     root: rootPath,
+    apiPath: "/v1/api",
+    adminPath: "/admin",
     app: {
       name: 'attractapp'
     },

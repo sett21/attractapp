@@ -3,13 +3,11 @@ var express = require('express'),
     mongoose = require('mongoose'),
     User = mongoose.model('User');
 
-router.use(function(req, res, next) {
-    next();
-});
-
 module.exports = function (app, prefix) {
-	router.get('/', function (req, res, next) {
-		res.send({message : "Welcome to our API"});
-	});
+	router.route('/')
+		.get(function (req, res, next) {
+			res.send({message : "Welcome to our API"});
+		});
+
 	app.use(prefix, router);
 };

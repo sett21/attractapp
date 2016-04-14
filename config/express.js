@@ -29,12 +29,17 @@ module.exports = function(app, config) {
 
   var controllers = glob.sync(config.root + '/app/controllers/api/*.js');
   controllers.forEach(function (controller) {
-    require(controller)(app, "/v1/api");
+    require(controller)(app, config.apiPath);
   });
 
   var controllersPanel = glob.sync(config.root + '/app/controllers/panel/*.js');
   controllersPanel.forEach(function (controller) {
-    require(controller)(app, "/");
+    require(controller)(app, config.adminPath);
+  });
+
+  app.get('*', function(req, res){
+    res.setHeader('Content-Type', 'application/json');
+    res.status(404).send(JSON.stringify({ message: 'Not Found' }, 2, 2));
   });
 
   app.use(function (req, res, next) {
