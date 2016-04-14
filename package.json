@@ -17,7 +17,6 @@
     "mongoose": "^4.1.2",
     "morgan": "^1.6.1",
     "serve-favicon": "^2.3.0",
-    "path-to-regexp": "~"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
