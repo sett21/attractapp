@@ -9,5 +9,5 @@ module.exports = function (app, prefix) {
 			res.send({message : "Welcome to our API"});
 		});
 
-	app.use(prefix, router);
+	app.use("/v1/api/", router);
 };

@@ -11,5 +11,5 @@ module.exports = function (app, prefix) {
 	router.get('/', function (req, res, next) {
 		res.render('index', {title : "Admin panel there"});
 	});
-	app.use(prefix, router);
+	app.use("/admin", router);
 };

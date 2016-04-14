@@ -29,12 +29,12 @@ module.exports = function(app, config) {
 
   var controllers = glob.sync(config.root + '/app/controllers/api/*.js');
   controllers.forEach(function (controller) {
-    require(controller)(app, config.apiPath);
+    require(controller)(app);
   });
 
   var controllersPanel = glob.sync(config.root + '/app/controllers/panel/*.js');
   controllersPanel.forEach(function (controller) {
-    require(controller)(app, config.adminPath);
+    require(controller)(app);
   });
 
   app.get('*', function(req, res){

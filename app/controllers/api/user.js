@@ -42,7 +42,7 @@ module.exports = function (app, prefix) {
 	        });
 		});
     
-    app.use(prefix, router);
+    app.use("/v1/api/", router);
 };
 
 
