@@ -30,7 +30,7 @@ var config = {
     app: {
       name: 'attractapp'
     },
-    port: 3000,
+    port: process.env.PORT || 5000,
     db: 'mongodb://<dbuser>:<dbpassword>@ds023540.mlab.com:23540/heroku_jx2wxdw5'
   }
 };
