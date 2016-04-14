@@ -29,9 +29,4 @@ var UserSchema = new Schema({
 	}
 });
 
-UserSchema.virtual('date')
-	.get(function(){
-		return this._id.getTimestamp();
-	});
-
 mongoose.model('User', UserSchema);

@@ -15,10 +15,7 @@ router.route('/user')
 		})
 	})
 	.post(function (req, res) {
-        var user = new User();
-        user.name = req.body.name;
-        user.gender = req.body.gender;
-        user.about = req.body.about;
+        var user = new User(req.body);
         user.save(function(err) {
             if (err) res.send(err);
             res.json({ message: 'User created!' });
@@ -35,25 +32,16 @@ router.route('/user/:id')
 	})
 	.put(function (req, res){
 		var id = req.params.id;
-		User.findById(id, function(err, user) {
+		User.update({ _id: id }, req.body, function (err, raw) {
 			if (err) res.send(err);
-			
-			if (req.body.name) user.name = req.body.name;
-			if (req.body.gender) user.gender = req.body.gender;
-			if (req.body.about) user.about = req.body.about;
-			user._updated = new Date();
-			user.save(function(err) {
-				if (err) res.send(err);
-				res.json({ message: 'User updated!'});
-			});
+			res.send({message : raw});
 		});
 	})
 	.delete(function (req, res) {
-        User.remove({
-            _id: req.params.id
-        }, function (err, user) {
+		var id = req.params.id;
+        User.remove({_id: id}, function (err) {
             if (err) res.send(err);
-            res.json({ message: 'Successfully deleted' });
+            res.send({ message: id + ' successfully deleted' });
         });
 	});
 
