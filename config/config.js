@@ -11,7 +11,7 @@ var config = {
       name: 'attractapp'
     },
     port: 3000,
-    db: 'mongodb://localhost/attractapp-development'
+    db: 'mongodb://sett21:sett280287@ds023540.mlab.com:23540/heroku_jx2wxdw5'
   },
 
   test: {
