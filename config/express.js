@@ -27,9 +27,14 @@ module.exports = function(app, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
-  var controllers = glob.sync(config.root + '/app/controllers/*.js');
+  var controllers = glob.sync(config.root + '/app/controllers/api/*.js');
   controllers.forEach(function (controller) {
-    require(controller)(app);
+    require(controller)(app, "/v1/api");
+  });
+
+  var controllersPanel = glob.sync(config.root + '/app/controllers/panel/*.js');
+  controllersPanel.forEach(function (controller) {
+    require(controller)(app, "/");
   });
 
   app.use(function (req, res, next) {
