@@ -29,7 +29,7 @@ var config = {
       name: 'attractapp'
     },
     port: 3000,
-    db: 'mongodb://localhost/attractapp-production'
+    db: 'mongodb://localhost/attractapp-test'
   }
 };
 
